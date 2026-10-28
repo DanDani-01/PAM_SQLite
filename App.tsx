@@ -1,7 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react'
+import {Banco, createTable} from './config/Banco'
 
 export default function App() {
+
+  //carregar o banco toda vez que inicia o app 
+  useEffect(()=>{
+    //criar uma função de iniciar
+    const init = async()=>{
+      //criar referência a banco
+      const db = await Banco();
+    };
+
+    init();
+ },[])
+
+ 
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
